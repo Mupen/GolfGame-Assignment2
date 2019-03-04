@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 
 public class GolfGame {
-	public static double[][] savedGolfData;
+	public static double[][] savedGolfData = null;
 	public static Random rng = new Random();
 	static int userScore = 0;
     static Scanner keyboard = new Scanner(System.in);
@@ -28,7 +28,6 @@ public class GolfGame {
 
     		switch (selection.toLowerCase()) {
 			case "start":
-				savedGolfData = new double[0][4]; // used to reset the values of the array so it don't have values or null
 				keepLooping = startGolfGame(); // call a method that will give you option of golf courses
 				break;
 			case "help":
@@ -151,6 +150,9 @@ public class GolfGame {
 	}
 	
 	public static void saveSwingScoreData(double distance, double imputAngle, double inputVelocity, double shotDistance) {
+		// used to reset the values of the array so it don't have values or null
+		if (savedGolfData == null) {savedGolfData = new double[0][4];}
+		 
 		savedGolfData = Arrays.copyOf(savedGolfData, savedGolfData.length + 1); // add one row for the new stroke
 		double[][] scoreData = new double[1][4];
 		scoreData[0][0] = imputAngle;

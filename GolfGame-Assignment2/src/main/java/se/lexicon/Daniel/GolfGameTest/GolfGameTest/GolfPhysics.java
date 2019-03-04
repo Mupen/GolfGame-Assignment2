@@ -66,16 +66,14 @@ public class GolfPhysics {
 		//  Round the values so that they don't become ridiculous and save it to the score array.
 		GolfGame.saveSwingScoreData(distance, imputAngle, inputVelocity, shotDistance);
 		
-		// This remove the distance you shot from the original value. and re round them.
+		// This remove the distance you shot from the original value. 
 		distance -= shotDistance;
 		
-		distance = roundDecimal2(distance); 
-				
 		// This is printed and then subtracted out of distance remaining.
 		System.out.println("Your stroke went " + shotDistance + " meters.");
 		
 		// Return the value left on the current hole.
-		return distance;
+		return distance = roundDecimal2(distance);
     }
 	
 	public static Double roundDecimal2(Double inputDouble) {
